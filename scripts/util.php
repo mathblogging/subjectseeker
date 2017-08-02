@@ -1550,7 +1550,7 @@ function addSimplePieItem ($item, $language, $blogId, $db) {
 		$timestamp = date("Y-m-d H:i:s");
 	}
 	
-	$sql = "SELECT BLOG_POST_ID FROM BLOG_POST WHERE BLOG_ID = $blogId AND ( (BLOG_POST_TITLE = '$postTitle' AND BLOG_POST_DATE_TIME = '$timestamp') OR (BLOG_POST_URI = '$itemURI') )";
+	$sql = "SELECT BLOG_POST_ID FROM BLOG_POST WHERE (BLOG_POST_TITLE = '$postTitle' AND BLOG_POST_DATE_TIME = '$timestamp') OR (BLOG_POST_URI = '$itemURI')";
 	$result =	mysql_query($sql, $db);
 	
 	if (! $result || mysql_num_rows($result) != 0) {
@@ -4770,8 +4770,7 @@ function addToTwitterList($twitterUserId) {
 function getTwitterUserDetails($twitterUserId = NULL, $twitterUserName = NULL, $oauthToken = NULL, $oauthSecret = NULL) {
 	$url = "https://api.twitter.com/1.1/users/lookup.json";
 	$parameters = array(
-		"user_id" => $twitterUserId,
-		"screen_name" => $twitterUserName
+		"user_id" => $twitterUserId
 	);
 	
 	$data = twitterConnection($url, "GET", $parameters, $oauthToken, $oauthSecret);

@@ -1,0 +1,5 @@
+#!/bin/sh
+date >> "/home/pkrautzberger/mb.mathpeople.org/logs/crawler.log"
+"/home/pkrautzberger/mb.mathpeople.org/cron/crawler.php" >> "/home/pkrautzberger/mb.mathpeople.org/logs/crawler.log" 2>&1
+"/home/pkrautzberger/mb.mathpeople.org/cron/check-tweets.php" >> "/home/pkrautzberger/mb.mathpeople.org/logs/crawler.log" 2>&1
+"/home/pkrautzberger/mb.mathpeople.org/cron/citation-crawler.php" >> "/home/pkrautzberger/mb.mathpeople.org/logs/crawler.log" 2>&1

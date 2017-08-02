@@ -232,7 +232,7 @@ function doAddBlog ($db) {
 		$blogId = $addBlog["id"];
 		
 		if (!empty($twitterHandle)) {
-			$twitterUser = getTwitterUserDetails(NULL, $twitterHandle);
+			$twitterUser = getTwitterUserDetails($twitterHandle);
 				
 			if (isset($twitterUser->id)) {
 				unlinkSocialNetworkSite(1, $blogId, $db);
